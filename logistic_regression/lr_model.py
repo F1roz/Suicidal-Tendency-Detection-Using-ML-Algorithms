@@ -14,7 +14,7 @@ lemmatizer = WordNetLemmatizer()
 def clean_text(text):
     # Ensure text is a string
     if not isinstance(text, str):
-        return ""  # Return empty string if text is not a string
+        return ""  
     
     text = text.lower()  # Lowercase text
     text = re.sub(r'http\S+', '', text)  # Remove URLs
@@ -47,7 +47,7 @@ data[['Clean_Tweet']].to_csv('cleaned_tweets.csv', index=False)
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-vectorizer = TfidfVectorizer(max_features=1000)  # You can adjust the number of max_features
+vectorizer = TfidfVectorizer(max_features=10000)  
 tfidf_features = vectorizer.fit_transform(data['Clean_Tweet'])
 
 
@@ -56,9 +56,9 @@ from sklearn.linear_model import LogisticRegression
 
 model = LogisticRegression()
 param_grid = {
-    'C': [0.01, 0.1, 1, 10, 100],  # Regularization parameter
-    'solver': ['liblinear', 'lbfgs'],  # Optimizer to use
-    'class_weight': [None, 'balanced']  # Option to handle imbalanced data
+    'C': [0.01, 0.1, 1, 10, 100],  
+    'solver': ['liblinear', 'lbfgs'],  
+    'class_weight': [None, 'balanced'] 
 }
 
 
