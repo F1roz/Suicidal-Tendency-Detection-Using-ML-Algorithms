@@ -19,7 +19,7 @@ except ModuleNotFoundError:
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-# Initialize lemmatizer
+# Initializing lemmatizer
 lemmatizer = WordNetLemmatizer()
 
 # Text cleaning function
